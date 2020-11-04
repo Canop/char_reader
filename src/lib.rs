@@ -1,7 +1,7 @@
 /*!
 `CharReader` is a buffered reader with some difference with the standard one:
 
-* you can read lines without chocking on an infinite stream without newlines
+* you can read lines without choking on an infinite stream without newlines
 * you can read lines and not store more than necessary
 
 It's suitable when you'd like to read UTF8 lines and aren't sure the data are kind enough.

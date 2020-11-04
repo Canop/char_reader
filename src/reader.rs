@@ -52,7 +52,7 @@ impl<R: Read> CharReader<R> {
             // there's not enough bytes in buffer
             // we start by moving what we have at the start of the buffer to make some room
             self.buffer.copy_within(self.pos..self.len, 0);
-            self.len = self.len - self.pos;
+            self.len -= self.pos;
             self.len += self.src.read(&mut self.buffer[self.len..])?;
             if self.len < char_size {
                 // we may ignore one to 3 bytes not being correct UTF8 at the
@@ -108,11 +108,7 @@ impl<R: Read> CharReader<R> {
                     return Err(e);
                 }
                 Ok(None) => {
-                    return if chars_count > 0 {
-                        Ok(true)
-                    } else {
-                        Ok(false)
-                    };
+                    return Ok(chars_count > 0);
                 }
                 Ok(Some(c)) => {
                     if c == '\r' {
