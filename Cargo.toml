@@ -1,0 +1,13 @@
+[package]
+name = "char_reader"
+version = "0.1.0"
+authors = ["dystroy <denys.seguret@gmail.com>"]
+edition = "2018"
+keywords = ["unicode", "char", "reader"]
+license = "MIT"
+categories = []
+description = "Safely read wild streams as chars or lines"
+repository = "https://github.com/Canop/char_reader"
+readme = "README.md"
+
+[dependencies]
