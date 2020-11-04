@@ -13,14 +13,13 @@
 [l4]: https://miaou.dystroy.org/3
 
 
-`CharReader` is a buffered reader with some difference with the standard one:
+`CharReader` is a buffered reader with some differences with the standard one:
 
+* there's a `next_char` function to read only one char
 * you can read lines without choking on an infinite stream without newlines
-* you can read lines and not store more than necessary
+* you can read lines and not store more than necessary if you just want the beginning
 
 It's suitable when you'd like to read UTF8 lines and aren't sure the data are kind enough.
-
-You may either read a single char, or read a line.
 
 When reading a line, you pass two parameters:
 
